@@ -11,8 +11,8 @@
 }
 
 .header > a > img {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
 }
 
 .navBar {
@@ -24,7 +24,7 @@
 
 .navBar > a {
   text-decoration: none;
-  font-size: 32px;
+  font-size: 14px;
   color: #e1e1e6;
   font-weight: bold;
 }
@@ -41,11 +41,11 @@
   font-weight: bold;
   color: #e1e1e6;
   padding: 16px;
-  font-size: 32px;
+  font-size: 14px;
   border: 0;
-  border-radius: 8px;
-  width: 156px;
-  height: 64px;
+  border-radius: 4px;
+  width: 64px;
+  height: 32px;
 }
 
 .btnLogin:hover {
@@ -53,19 +53,18 @@
   cursor: pointer;
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 1500px) {
   .header > a > img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
   }
   .navBar > a {
-    font-size: 16px;
+    font-size: 12px;
     text-align: center;
   }
   .btnLogin {
     padding: 16px;
-    font-size: 16px;
+    font-size: 12px;
     border-radius: 4px;
     width: 80px;
     height: 24px;
