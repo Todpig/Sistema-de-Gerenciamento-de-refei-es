@@ -20,10 +20,13 @@
       <nav class="navBar">
         <a href="#">Cardapio do dia</a>
         <a href="#">Solicitar refeição</a>
+        {% if not user.is_anonymous %} {% if user.is_superuser %}
         <a href="#">Escolher prato do dia</a>
         <a href="#">Aprovar solicitações</a>
         <a href="#">Cadastrar refeições</a>
+        {% endif %} {% endif %} {% if user.is_anonymous %}
         <button class="btnLogin">Login</button>
+        {% endif %}
       </nav>
     </header>
     {% block content %} {% endblock %}
