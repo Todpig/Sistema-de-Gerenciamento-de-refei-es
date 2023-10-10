@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/base.css'%}" />
+    <title>Gerenciamento de Refeições</title>
+  </head>
+  <body class="body">
+    <header class="header">
+      <a href="/">
+        <img src="{% static 'img/logo.png' %}" />
+      </a>
+      <nav class="navBar">
+        <a href="#">Cardapio do dia</a>
+        <a href="#">Solicitar refeição</a>
+        <a href="#">Escolher prato do dia</a>
+        <a href="#">Aprovar solicitações</a>
+        <a href="#">Cadastrar refeições</a>
+        <button class="btnLogin">Login</button>
+      </nav>
+    </header>
+    {% block content %} {% endblock %}
+  </body>
+</html>
