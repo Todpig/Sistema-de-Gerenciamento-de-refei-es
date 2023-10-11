@@ -1,72 +1,75 @@
 .body {
-  background-color: #121214;
-  color: #e1e1e6;
-  font-family: "Roboto", sans-serif;
+    background-color: #121214;
+    color: #e1e1e6;
+    font-family: "Roboto", sans-serif;
+
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .header > a > img {
-  width: 200px;
-  height: 200px;
+    width: 200px;
+    height: 200px;
 }
 
 .navBar {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  gap: 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 32px;
 }
 
 .navBar > a {
-  text-decoration: none;
-  font-size: 14px;
-  color: #e1e1e6;
-  font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    color: #e1e1e6;
+    font-weight: bold;
 }
 
 .navBar > a:hover {
-  opacity: 80%;
+    opacity: 80%;
 }
 
 .btnLogin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #00875f;
-  font-weight: bold;
-  color: #e1e1e6;
-  padding: 16px;
-  font-size: 14px;
-  border: 0;
-  border-radius: 4px;
-  width: 64px;
-  height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00875f;
+    font-weight: bold;
+    color: #e1e1e6;
+    padding: 8px;
+    font-size: 16px;
+    border: 0;
+    border-radius: 4px;
+    width: 64px;
+    height: 24px;
 }
 
 .btnLogin:hover {
-  background: #00b37e;
-  cursor: pointer;
+    background: #00b37e;
+    cursor: pointer;
 }
 
 @media (max-width: 1500px) {
-  .header > a > img {
-    width: 100px;
-    height: 100px;
-  }
-  .navBar > a {
-    font-size: 12px;
-    text-align: center;
-  }
-  .btnLogin {
-    padding: 16px;
-    font-size: 12px;
-    border-radius: 4px;
-    width: 80px;
-    height: 24px;
-  }
+    .header > a > img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .navBar > a {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .btnLogin {
+        padding: 16px;
+        font-size: 12px;
+        border-radius: 4px;
+        width: 80px;
+        height: 24px;
+    }
 }
