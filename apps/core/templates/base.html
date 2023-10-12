@@ -9,13 +9,25 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{% static 'css/base.css'%}" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'img/favicon.png' %}"
+    />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <title>Gerenciamento de Refeições</title>
   </head>
   <body class="body">
-    <header class="header">
+    <header class="header" id="header">
       <a href="/">
-        <img src="{% static 'img/logo.png' %}" />
+        <img
+          src="{% static 'img/logo.png' %}"
+          alt="logo do gerenciamneto de refeição"
+        />
       </a>
       <nav class="navBar">
         <a href="#">Cardapio do dia</a>
@@ -25,10 +37,32 @@
         <a href="#">Aprovar solicitações</a>
         <a href="#">Cadastrar refeições</a>
         {% endif %} {% endif %} {% if user.is_anonymous %}
-        <button class="btnLogin">Login</button>
+        <a class="btnLogin" href="/admin">Login</a>
         {% endif %}
       </nav>
     </header>
     {% block content %} {% endblock %}
+
+    <footer class="footer">
+      <div class="OptionsFooter">
+        <a href="#header">Voltar ao topo</a>
+        <div class="ContentImg">
+          <p>Sistema de gerenciamento de refeições do IFRN 2023</p>
+          <img src="{% static 'img/copyright.svg'%}" />
+        </div>
+      </div>
+      <div class="OptionsFooter">
+        <a href="https://portal.ifrn.edu.br/">Portal do IFRN</a>
+        <a href="https://suap.ifrn.edu.br/">SUAP</a>
+        <div class="ContentImg">
+          <a href="https://www.instagram.com/ifrnpaudosferros/"
+            ><img src="{% static 'img/instagram-logo.svg'%}"
+          /></a>
+          <a href="https://www.facebook.com/ifrnpaudosferros"
+            ><img src="{% static 'img/facebook-logo.svg'%}"
+          /></a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

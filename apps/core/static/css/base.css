@@ -7,12 +7,13 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0 64px;
 }
 
 .header > a > img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 90px;
 }
 
 .navBar {
@@ -24,7 +25,7 @@
 
 .navBar > a {
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   color: #e1e1e6;
   font-weight: bold;
 }
@@ -40,12 +41,12 @@
   background: #00875f;
   font-weight: bold;
   color: #e1e1e6;
-  padding: 16px;
-  font-size: 14px;
+  padding: 8px;
+  font-size: 16px;
   border: 0;
   border-radius: 4px;
   width: 64px;
-  height: 32px;
+  height: 24px;
 }
 
 .btnLogin:hover {
@@ -53,20 +54,70 @@
   cursor: pointer;
 }
 
-@media (max-width: 1500px) {
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 64px;
+  font-size: 16px;
+}
+
+.OptionsFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 10px;
+}
+
+.OptionsFooter > a {
+  text-decoration: none;
+  color: #a9a9b2;
+}
+
+.OptionsFooter > a:hover {
+  color: #00875f;
+}
+
+.ContentImg {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+}
+.ContentImg > img {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 1280px) {
   .header > a > img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 64px;
   }
+
   .navBar > a {
-    font-size: 12px;
+    font-size: 10px;
     text-align: center;
   }
+
   .btnLogin {
-    padding: 16px;
+    padding: 8px;
     font-size: 12px;
     border-radius: 4px;
-    width: 80px;
-    height: 24px;
+    width: 32px;
+    height: 16px;
+  }
+  .OptionsFooter > a{
+    font-size: 12px;
+  }
+  .ContentImg > p{
+    font-size: 12px;
+  }
+  .ContentImg > img{
+    width: 12px;
+    height: 12px;
+  }
+  .ContentImg > a > img{
+    width: 16px;
+    height: 16px;
   }
 }

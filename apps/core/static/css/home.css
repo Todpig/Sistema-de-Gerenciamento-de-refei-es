@@ -1,0 +1,111 @@
+.ContainerHome {
+  background: #202024;
+  width: 90%;
+  height: 800px;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.ContainerImg > img {
+  width: 512px;
+  height: 480px;
+}
+
+.ContainerTxt {
+  display: flex;
+  flex-direction: column;
+  max-width: 638px;
+  gap: 16px;
+}
+
+.ContainerTxt > h1 {
+  font-size: 48px;
+}
+
+.ContainerTxt > span {
+  color: #00875f;
+  font-size: 32px;
+  text-align: left;
+}
+
+.ContainerTxt > p {
+  font-size: 24px;
+  text-align: left;
+}
+
+.ContainerRecursos {
+  background: #202024;
+  width: 90%;
+  height: 300px;
+
+  border-radius: 8px;
+  margin: 64px auto;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.Textos {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.Textos > span {
+  color: #00b37e;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.Textos > p {
+  color: #a9a9b2;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.ContainerRecursos > img {
+  max-width: 128px;
+  max-height: 128px;
+}
+
+@media (max-width: 1280px) {
+  .ContainerHome {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 500px;
+  }
+  .ContainerImg > img {
+    width: 280px;
+    height: 240px;
+  }
+  .ContainerTxt > h1 {
+    font-size: 24px;
+  }
+  .ContainerTxt > span {
+    font-size: 16px;
+  }
+  .ContainerTxt > p {
+    font-size: 14px;
+  }
+  .ContainerRecursos > img {
+    width: 80px;
+    height: 80px;
+  }
+  .Recursos > h1 {
+    font-size: 24px;
+  }
+
+  .Textos > span {
+    font-size: 14px;
+  }
+  .Textos > p {
+    font-size: 14px;
+  }
+}

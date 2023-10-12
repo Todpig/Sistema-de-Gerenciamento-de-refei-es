@@ -1,3 +1,35 @@
-{% block content %} 
-{% load static %}
+{% block content %} {% load static %}
+<div class="ContainerHome">
+  <div class="ContainerImg">
+    <img src="{% static 'img/imgHome.png' %}" alt="" />
+  </div>
+  <div class="ContainerTxt">
+    <h1>Sistema de gerenciamento de refeições do IFRN</h1>
+    <span>Bem-vindo ao Sistema de Gerenciamento de  Refeições do IFRN!</span>
+    <p>
+      No IFRN, acreditamos que uma alimentação saudável é essencial para o
+      sucesso acadêmico e bem-estar de nossos estudantes. Este sistema foi
+      projetado para tornar mais fácil e conveniente o acesso a refeições
+      nutritivas em nosso campus.
+    </p>
+  </div>
+</div>
+<div class="ContainerRecursos">
+  <div class="Recursos">
+    <h1>Recursos Principais:</h1>
+    <div class="Textos">
+      <span>Cardápio Diário:</span>
+      <p>Confira o cardápio atualizado regularmente.</p>
+    </div>
+    <div class="Textos">
+      <span>Solicitação Online:</span>
+      <p>Faça sua solicitação de forma fácil e segura.</p>
+    </div>
+    <div class="Textos">
+      <span>Notificações em Tempo Real:</span>
+      <p>Fique de olho para receber os status de sua solicitação.</p>
+    </div>
+  </div>
+  <img src="{% static 'img/ifrn-logo.png' %}" alt="logo transparente do IF" />
+</div>
 {% endblock %}
