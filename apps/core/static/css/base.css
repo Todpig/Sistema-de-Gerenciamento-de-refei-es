@@ -1,7 +1,8 @@
 .body {
-  background-color: #121214;
-  color: #e1e1e6;
-  font-family: "Roboto", sans-serif;
+    background-color: #121214;
+    color: #e1e1e6;
+    font-family: "Roboto", sans-serif;
+
 }
 
 .header {
@@ -17,10 +18,10 @@
 }
 
 .navBar {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  gap: 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 32px;
 }
 
 .navBar > a {
@@ -31,7 +32,7 @@
 }
 
 .navBar > a:hover {
-  opacity: 80%;
+    opacity: 80%;
 }
 
 .btnLogin {
@@ -50,8 +51,8 @@
 }
 
 .btnLogin:hover {
-  background: #00b37e;
-  cursor: pointer;
+    background: #00b37e;
+    cursor: pointer;
 }
 
 .footer {
