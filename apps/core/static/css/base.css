@@ -6,14 +6,15 @@
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 64px;
 }
 
 .header > a > img {
-    width: 200px;
-    height: 200px;
+  width: 100px;
+  height: 90px;
 }
 
 .navBar {
@@ -24,10 +25,10 @@
 }
 
 .navBar > a {
-    text-decoration: none;
-    font-size: 16px;
-    color: #e1e1e6;
-    font-weight: bold;
+  text-decoration: none;
+  font-size: 16px;
+  color: #e1e1e6;
+  font-weight: bold;
 }
 
 .navBar > a:hover {
@@ -35,18 +36,18 @@
 }
 
 .btnLogin {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #00875f;
-    font-weight: bold;
-    color: #e1e1e6;
-    padding: 8px;
-    font-size: 16px;
-    border: 0;
-    border-radius: 4px;
-    width: 64px;
-    height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #00875f;
+  font-weight: bold;
+  color: #e1e1e6;
+  padding: 8px;
+  font-size: 16px;
+  border: 0;
+  border-radius: 4px;
+  width: 64px;
+  height: 24px;
 }
 
 .btnLogin:hover {
@@ -54,22 +55,70 @@
     cursor: pointer;
 }
 
-@media (max-width: 1500px) {
-    .header > a > img {
-        width: 100px;
-        height: 100px;
-    }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 64px;
+  font-size: 16px;
+}
 
-    .navBar > a {
-        font-size: 12px;
-        text-align: center;
-    }
+.OptionsFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 10px;
+}
 
-    .btnLogin {
-        padding: 16px;
-        font-size: 12px;
-        border-radius: 4px;
-        width: 80px;
-        height: 24px;
-    }
+.OptionsFooter > a {
+  text-decoration: none;
+  color: #a9a9b2;
+}
+
+.OptionsFooter > a:hover {
+  color: #00875f;
+}
+
+.ContentImg {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+}
+.ContentImg > img {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 1280px) {
+  .header > a > img {
+    width: 80px;
+    height: 64px;
+  }
+
+  .navBar > a {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .btnLogin {
+    padding: 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    width: 32px;
+    height: 16px;
+  }
+  .OptionsFooter > a{
+    font-size: 12px;
+  }
+  .ContentImg > p{
+    font-size: 12px;
+  }
+  .ContentImg > img{
+    width: 12px;
+    height: 12px;
+  }
+  .ContentImg > a > img{
+    width: 16px;
+    height: 16px;
+  }
 }
