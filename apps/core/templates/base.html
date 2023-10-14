@@ -17,8 +17,10 @@
     />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="theme-color" content="#ffffff" />
+    <!--Links to css-->
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/todayMenu.css' %}" />
     <title>Gerenciamento de Refeições</title>
   </head>
   <body class="body">
@@ -30,7 +32,7 @@
         />
       </a>
       <nav class="navBar">
-        <a href="#">Cardapio do dia</a>
+        <a href="today-menu">Cardapio do dia</a>
         <a href="#">Solicitar refeição</a>
         {% if not user.is_anonymous %} {% if user.is_superuser %}
             <a href="#">Escolher prato do dia</a>
