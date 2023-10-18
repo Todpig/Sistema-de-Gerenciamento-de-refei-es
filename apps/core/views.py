@@ -6,3 +6,9 @@ class IndexView(TemplateView):
 
 class TodayMenu(TemplateView):
     template_name = "todayMenu.html"
+
+class RequestSnackView(TemplateView):
+    template_name = "request-snack.html"
+
+class RequestDinnerView(TemplateView):
+    template_name = "request-dinner.html"

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="ContainerRequest">
+    <div class="ContainerContent">
+        <div class="ContainerAlign">
+            <img src ="{% static 'img/imgLunch.png' %}" alt=''/>
+            <div class="ContainerTxt">
+                <h1>Solicitar Almoço</h1>
+                <form action="/action_page.php" class="formulario">
+                    <label for="dish">Solicitar para o dia:</label>
+                    <input type="date" id="dish" name="dish">
+                    <label for="justification">Justificativa da solicitação:</label>
+                    <textarea id="justification" name="justification" rows="10" cols="50"></textarea>
+                    <input type="submit" value ="Enviar Solicitação" id="request-button">
+                </form>
+                <a href="{% url 'request-dinner' %}" class="request-dinner">Solicitar jantar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
