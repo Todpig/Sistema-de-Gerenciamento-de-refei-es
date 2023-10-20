@@ -27,14 +27,12 @@
 }
 
 .QtdAllRequestNeal {
-  display: flex;
-  position: absolute;
-  left: 100px;
-}
-.QtdAllRequestNeal {
   color: #00875e;
   font-size: 16px;
   gap: 4px;
+  display: flex;
+  position: absolute;
+  left: 100px;
 }
 
 .HeaderAllRequestNeal > h1 {
@@ -131,4 +129,57 @@
 
 #btnReject:hover {
   opacity: 90%;
+}
+
+@media (max-width: 1280px) {
+  .AllRequestNeal {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+  }
+  .HeaderAllRequestNeal > h1 {
+    font-size: 28px;
+  }
+  .QtdAllRequestNeal p:first-child {
+    display: none;
+  }
+  .QtdAllRequestNeal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: #00875e;
+    font-weight: bold;
+    color: #e1e1e6;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    left: 16px;
+  }
+  .Neal {
+    width: 400px;
+    height: 100px;
+  }
+  .Neal > h1 {
+    font-size: 16px;
+  }
+  .ContentNealTxt > h4 {
+    font-size: 12px;
+  }
+  .ContentNealTxt > p {
+    font-size: 10px;
+  }
+  .ContentNealButtons {
+    gap: 28px;
+  }
+  #btnReject {
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 10px;
+  }
+  #btnApprove {
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 10px;
+  }
 }
