@@ -1,0 +1,185 @@
+.ContainerAllRequestNeal {
+  background: #202024;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 8px;
+  margin: 32px 0;
+  overflow: hidden;
+}
+
+.ContentAllRequestNeal {
+  overflow-y: scroll;
+  max-height: 800px;
+}
+.ContentAllRequestNeal::-webkit-scrollbar {
+  width: 12px;
+}
+
+.ContentAllRequestNeal::-webkit-scrollbar-thumb {
+  background: #00875e;
+  border-radius: 6px;
+}
+
+.ContentAllRequestNeal::-webkit-scrollbar-track {
+  background: #202024;
+}
+
+.QtdAllRequestNeal {
+  color: #00875e;
+  font-size: 16px;
+  gap: 4px;
+  display: flex;
+  position: absolute;
+  left: 100px;
+}
+
+.HeaderAllRequestNeal > h1 {
+  color: #00875e;
+  font-size: 48px;
+}
+
+.HeaderAllRequestNeal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AllRequestNeal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.Neal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #323238;
+  width: 600px;
+  height: 150px;
+  border: 0;
+  border-radius: 4px;
+  padding: 16px 0;
+}
+
+.Neal > h1 {
+  font-size: 20px;
+  color: #00875e;
+  margin: 0;
+}
+
+.ContentNeal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.ContentNealTxt {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+}
+.ContentNealTxt > h4 {
+  color: #e1e1e6;
+  font-size: 16px;
+  margin: 0;
+}
+.ContentNealTxt > p {
+  color: #a9a9b2;
+  font-size: 14px;
+  margin: 0;
+}
+.ContentNealButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 41px;
+  margin-right: 16px;
+}
+
+#btnApprove {
+  text-decoration: none;
+  text-align: center;
+  color: #e1e1e6;
+  background: #00875f;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 4px;
+}
+
+#btnApprove:hover {
+  background: #00b37e;
+}
+
+#btnReject {
+  text-decoration: none;
+  color: #e1e1e6;
+  background: #e74c3c;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 4px;
+}
+
+#btnReject:hover {
+  opacity: 90%;
+}
+
+@media (max-width: 1280px) {
+  .AllRequestNeal {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+  }
+  .HeaderAllRequestNeal > h1 {
+    font-size: 28px;
+  }
+  .QtdAllRequestNeal p:first-child {
+    display: none;
+  }
+  .QtdAllRequestNeal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: #00875e;
+    font-weight: bold;
+    color: #e1e1e6;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    left: 16px;
+  }
+  .Neal {
+    width: 400px;
+    height: 100px;
+  }
+  .Neal > h1 {
+    font-size: 16px;
+  }
+  .ContentNealTxt > h4 {
+    font-size: 12px;
+  }
+  .ContentNealTxt > p {
+    font-size: 10px;
+  }
+  .ContentNealButtons {
+    gap: 28px;
+  }
+  #btnReject {
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 10px;
+  }
+  #btnApprove {
+    padding: 4px 10px;
+    text-align: center;
+    font-size: 10px;
+  }
+}

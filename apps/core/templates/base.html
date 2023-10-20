@@ -1,13 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-            rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
     />
     <link
       rel="icon"
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}" />
     <link rel="stylesheet" href="{% static 'css/todayMenu.css' %}" />
     <link rel="stylesheet" href="{% static 'css/request.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/allRequest.css' %}" />
     <title>Gerenciamento de Refeições</title>
   </head>
   <body class="body">
@@ -36,9 +37,9 @@
         <a href="today-menu">Cardapio do dia</a>
         <a href="request-snack">Solicitar refeição</a>
         {% if not user.is_anonymous %} {% if user.is_superuser %}
-            <a href="#">Escolher prato do dia</a>
-            <a href="#">Aprovar solicitações</a>
-            <a href="#">Cadastrar refeições</a>
+        <a href="#">Escolher prato do dia</a>
+        <a href="all-request-meal">Aprovar solicitações</a>
+        <a href="#">Cadastrar refeições</a>
         {% endif %} {% endif %} {% if user.is_anonymous %}
         <a class="btnLogin" href="/admin">Login</a>
         {% endif %}
