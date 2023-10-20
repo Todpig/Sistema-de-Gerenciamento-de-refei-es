@@ -1,8 +1,7 @@
 .body {
-    background-color: #121214;
-    color: #e1e1e6;
-    font-family: "Roboto", sans-serif;
-
+  background-color: #121214;
+  color: #e1e1e6;
+  font-family: "Roboto", sans-serif;
 }
 
 .header {
@@ -18,10 +17,10 @@
 }
 
 .navBar {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 32px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 32px;
 }
 
 .navBar > a {
@@ -32,7 +31,7 @@
 }
 
 .navBar > a:hover {
-    opacity: 80%;
+  opacity: 80%;
 }
 
 .btnLogin {
@@ -51,15 +50,20 @@
 }
 
 .btnLogin:hover {
-    background: #00b37e;
-    cursor: pointer;
+  background: #00b37e;
+  cursor: pointer;
 }
 
 .footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 0 64px;
+  padding: 16px 64px;
   font-size: 16px;
+  background: #121214;
+  color: #a9a9b2;
 }
 
 .OptionsFooter {
@@ -67,6 +71,7 @@
   flex-direction: column;
   justify-content: left;
   gap: 10px;
+  margin-right: 200px;
 }
 
 .OptionsFooter > a {
@@ -107,17 +112,17 @@
     width: 32px;
     height: 16px;
   }
-  .OptionsFooter > a{
+  .OptionsFooter > a {
     font-size: 12px;
   }
-  .ContentImg > p{
+  .ContentImg > p {
     font-size: 12px;
   }
-  .ContentImg > img{
+  .ContentImg > img {
     width: 12px;
     height: 12px;
   }
-  .ContentImg > a > img{
+  .ContentImg > a > img {
     width: 16px;
     height: 16px;
   }

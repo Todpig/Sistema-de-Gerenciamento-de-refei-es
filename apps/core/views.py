@@ -12,3 +12,6 @@ class RequestSnackView(TemplateView):
 
 class RequestDinnerView(TemplateView):
     template_name = "request-dinner.html"
+
+class AllRequestNealView(TemplateView):
+    template_name = "allRequestNeal.html"
