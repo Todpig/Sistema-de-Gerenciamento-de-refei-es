@@ -6,5 +6,5 @@ urlpatterns = [
     path("today-menu", TodayMenu.as_view(), name="todayMenu"),
     path("request-snack", RequestSnackView.as_view(), name="request-snack"),
     path("request-dinner", RequestDinnerView.as_view(), name="request-dinner"),
-    path("all-request-neal", AllRequestNealView.as_view(), name="all-request-neal")
+    path("all-request-meal", AllRequestMealView.as_view(), name="all-request-meal")
 ]
