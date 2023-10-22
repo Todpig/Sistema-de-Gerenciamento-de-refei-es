@@ -1,0 +1,96 @@
+.select-dish {
+    padding: 2rem 0;
+}
+
+.select-dish-container {
+    background-color: #202024;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0 4rem 0;
+    border-radius: 0.5rem;
+    gap: 2rem;
+}
+
+.registered-dish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    width: 80%;
+    gap: 28px;
+}
+
+.select-dish-container registered-dish {
+    margin-top: 2rem;
+}
+
+.registered-dish h2 {
+    color: #00875F;
+}
+
+
+.select-dish-container h1 {
+    color: #00875F;
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+}
+
+.registered-dish-container {
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.card-dish {
+    max-width: 230px;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #323238;
+    border-radius: 0.5rem;
+}
+
+.card-dish img {
+    max-width: 130px;
+    width: 60%;
+    height: 92px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 90%;
+    padding: 0.5rem;
+}
+
+.description-title {
+    font-weight: bold;
+    width: 100%;
+}
+
+.description-text {
+    color: #A9A9B2;
+    width: 90%;
+}
+
+.btn-select-dish {
+    background-color: #00875F;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.4rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn-select-dish:hover {
+    cursor: pointer;
+    background: #00b37e;
+}

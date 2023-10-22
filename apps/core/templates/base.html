@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{% static 'css/request.css' %}" />
     <link rel="stylesheet" href="{% static 'css/allRequest.css' %}" />
     <link rel="stylesheet" href="{% static 'css/formToCreateMeal.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/select-dish.css' %}" />
     <title>Gerenciamento de Refeições</title>
   </head>
   <body class="body">
@@ -38,7 +39,7 @@
         <a href="today-menu">Cardapio do dia</a>
         <a href="request-snack">Solicitar refeição</a>
         {% if not user.is_anonymous %} {% if user.is_superuser %}
-        <a href="#">Escolher prato do dia</a>
+        <a href="select-dish">Escolher prato do dia</a>
         <a href="all-request-meal">Aprovar solicitações</a>
         <a href="create-meal">Cadastrar refeições</a>
         {% endif %} {% endif %} {% if user.is_anonymous %}

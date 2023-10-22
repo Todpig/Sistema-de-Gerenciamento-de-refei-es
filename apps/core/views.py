@@ -18,3 +18,5 @@ class AllRequestMealView(TemplateView):
 
 class FormToCreateMealView(TemplateView):
     template_name = "formToCreateMeal.html"
+class SelectDishView(TemplateView):
+    template_name = "select-dish.html"
