@@ -7,107 +7,31 @@
         <div class="registered-dish">
             <h2>Almoços cadastrados</h2>
             <div class="registered-dish-container">
+                {% for almoco in almocos %}
                 <div class="card-dish">
-                    <img src="{% static 'img/almoco.png' %}" alt="">
+                    <img src="{{almoco.image.url}}" alt="">
                     <div class="description">
                         <p class="description-title">Descrição:</p>
-                        <p class="description-text">Arroz solto, feijão carioca, salada simples, batata frita, bife e ovo frito.</p>
+                        <p class="description-text">{{almoco.description}}</p>
                     </div>
                     <button class="btn-select-dish">Selecionar</button>
                 </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/almoco.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Arroz solto, feijão carioca, salada simples, batata frita, bife e ovo frito.</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/almoco.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Arroz solto, feijão carioca, salada simples, batata frita, bife e ovo frito.</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/almoco.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Arroz solto, feijão carioca, salada simples, batata frita, bife e ovo frito.</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/almoco.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Arroz solto, feijão carioca, salada simples, batata frita, bife e ovo frito.</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/almoco.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Arroz solto, feijão carioca, salada simples, batata frita, bife e ovo frito.</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="registered-dish">
             <h2>Jantas cadastradas</h2>
             <div class="registered-dish-container">
+                {% for janta in jantares %}
                 <div class="card-dish">
-                    <img src="{% static 'img/janta.png' %}" alt="">
+                    <img src="{{janta.image.url}}" alt="">
                     <div class="description">
                         <p class="description-title">Descrição:</p>
-                        <p class="description-text">Macarronada  com carne moída</p>
+                        <p class="description-text">{{janta.description}}</p>
                     </div>
                     <button class="btn-select-dish">Selecionar</button>
                 </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/janta.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Macarronada  com carne moída</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/janta.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Macarronada  com carne moída</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/janta.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Macarronada  com carne moída</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/janta.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Macarronada  com carne moída</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
-                <div class="card-dish">
-                    <img src="{% static 'img/janta.png' %}" alt="">
-                    <div class="description">
-                        <p class="description-title">Descrição:</p>
-                        <p class="description-text">Macarronada  com carne moída</p>
-                    </div>
-                    <button class="btn-select-dish">Selecionar</button>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

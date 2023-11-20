@@ -5,21 +5,25 @@
     <div class="HeaderAllRequestNeal">
       <span class="QtdAllRequestNeal"
         ><p>Número de solicitações:</p>
-        <p>12</p></span
+        <p>{{qtd_requests}}</p></span
       >
       <h1>Solicitações de refeições</h1>
     </div>
     <div class="AllRequestNeal">
+      {% for req in requests %}
       <div class="Neal">
         <h1>Solicitação</h1>
         <div class="ContentNeal">
           <span class="ContentNealTxt">
             <h4>Nome:</h4>
-            <p>Lobo junior</p>
+            <p>{{req.student_name}}</p>
+            <h4>Tipo:</h4>
+            <p>
+              {{req.type}}
+            </p>
             <h4>Justificativa:</h4>
             <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
+              {{req.justification}}
             </p>
           </span>
           <div class="ContentNealButtons">
@@ -28,204 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
-      <div class="Neal">
-        <h1>Solicitação</h1>
-        <div class="ContentNeal">
-          <span class="ContentNealTxt">
-            <h4>Nome:</h4>
-            <p>Lobo junior</p>
-            <h4>Justificativa:</h4>
-            <p>
-              Estou pedindo esse almoço hoje pois estarei participando de uma
-              atividade estudantil pelo turno da tarde.
-            </p>
-          </span>
-          <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
-          </div>
-        </div>
-      </div>
+      {% endfor %}  
     </div>
   </div>
 </div>
