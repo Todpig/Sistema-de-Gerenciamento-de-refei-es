@@ -1,62 +1,66 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
-<div class="ContainerMenu">
-  <h1>Refeições do dia:</h1>
-  <div class="ContainerSnack">
-    <div class="ContainerTwoSnacks">
-      <div class="snacks">
-        <h1>Almoço do dia</h1>
-        <div class="ContainerImgSnack">
-          <img src="{% static 'img/almoco.png'%}" alt="almoco" />
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <div class="ContainerMenu">
+    <h1>Refeições do dia:</h1>
+    <div class="ContainerSnack">
+      <div class="ContainerTwoSnacks">
+        <div class="snacks">
+          <h1>Almoço do dia</h1>
+          {% for almoco_snack in almoco %}
+            <div class="ContainerImgSnack">
+              <img src="{{ almoco_snack.image.url }}" alt="almoco" />
+            </div>
+            <div class="menuLike">
+              <p>Cardápio:</p>
+              <span class="like">
+                <a href="#" class="link">
+                  <img src="{% static 'img/like.png' %}" alt="like" />
+                  <p>{{ almoco_snack.likes }}</p>
+                </a>
+              </span>
+            </div>
+            <p>{{ almoco_snack.description }}</p>
+            <a href="request-snack" id="requestSnack">Solicitar Almoço</a>
+          {% endfor %}
         </div>
-        <div class="menuLike">
-          <p>Cardápio:</p>
-          <span class="like">
-            <a href="#" class="link">
-              <img src="{% static 'img/like.png' %}" alt="like" />
-              <p>21</p>
-            </a>
-          </span>
+      </div>
+      <div class="ContainerTwoSnacks">
+        <div class="snacks">
+          <h1>Jantar do dia</h1>
+          {% for janta_snack in janta %}
+            <div class="ContainerImgSnack">
+              <img src="{{ janta_snack.image.url }}" alt="janta" />
+            </div>
+            <div class="menuLike">
+              <p>Cardápio:</p>
+              <span class="like">
+                <a href="#" class="link">
+                  <img src="{% static 'img/like.png' %}" alt="like" />
+                  <p>{{ janta_snack.likes }}</p>
+                </a>
+              </span>
+            </div>
+            <p>{{ janta_snack.description }}</p>
+            <a href="request-dinner" id="requestSnack">Solicitar Jantar</a>
+          {% endfor %}
         </div>
-        <p>Feijão, arroz solto, batata frita, ovo frito, salada e bife.</p>
-        <a href="request-snack" id="requestSnack">Solicitar Almoço</a>
       </div>
     </div>
-    <div class="ContainerTwoSnacks">
-      <div class="snacks">
-        <h1>Jantar do dia</h1>
-        <div class="ContainerImgSnack">
-          <img src="{% static 'img/janta.png'%}" alt="janta" />
-        </div>
-        <div class="menuLike">
-          <p>Cardápio:</p>
-          <span class="like">
-            <a href="#" class="link">
-              <img src="{% static 'img/like.png' %}" alt="like" />
-              <p>21</p>
-            </a>
-          </span>
-        </div>
-        <p>Macarronada com carne moída</p>
-        <a href="request-dinner" id="requestSnack">Solicitar Jantar</a>
+    <div class="clock">
+      <div>
+        <span id="hour">00</span>
+        <span class="time">Horas</span>
+      </div>
+      <div>
+        <span id="minutes">00</span>
+        <span class="time">Minutos</span>
+      </div>
+      <div>
+        <span id="seconds">00</span>
+        <span class="time">Segundos</span>
       </div>
     </div>
   </div>
-  <div class="clock">
-    <div>
-      <span id="hour">00</span>
-      <span class="time">Horas</span>
-    </div>
-
-    <div>
-      <span id="minutes">00</span>
-      <span class="time">Minutos</span>
-    </div>
-
-    <div>
-      <span id="seconds">00</span>
-      <span class="time">Segundos</span>
-    </div>
-  </div>
-</div>
-<script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 {% endblock %}
