@@ -43,7 +43,7 @@
         <a href="all-request-meal">Aprovar solicitações</a>
         <a href="create-meal">Cadastrar refeições</a>
         {% endif %} {% endif %} {% if user.is_anonymous %}
-        <a class="btnLogin" href="/admin">Login</a>
+        <a class="btnLogin" href="{% url 'social:begin' 'suap' %}">Login</a>
         {% endif %}
       </nav>
     </header>

@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
 from .models import Snack, RequestSnack
+from apps.core.forms import RequestSnackForm
 class IndexView(TemplateView):
     template_name = "index.html"
 
@@ -13,15 +14,22 @@ class TodayMenu(ListView):
         context["almoco"] = Snack.objects.filter(type="almoço", snack_to_day=True, active=True)
         context["janta"] = Snack.objects.filter(type="janta", snack_to_day=True, active=True)
         return context
-class RequestSnackView(TemplateView):
+    
+class RequestSnackView(CreateView):
     template_name = "request-snack.html"
+    form_class = RequestSnackForm
+    model = RequestSnack
+    success_url = "/"
 
-class RequestDinnerView(TemplateView):
-    template_name = "request-dinner.html"
-
+    def get_context_data(self, **kwargs):
+        context = super(RequestSnackView, self).get_context_data(**kwargs)
+        context['form'] = RequestSnackForm()  
+        return context
 class AllRequestMealView(ListView):
     model = RequestSnack
     template_name = "allRequestMeal.html"
+    form_class = RequestSnackForm
+    success_url = "/"
 
     def get_context_data(self, **kwargs):
         context = super(AllRequestMealView, self).get_context_data(**kwargs)
