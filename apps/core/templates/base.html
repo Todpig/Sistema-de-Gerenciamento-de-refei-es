@@ -37,13 +37,18 @@
       </a>
       <nav class="navBar">
         <a href="today-menu">Cardapio do dia</a>
-        <a href="request-snack">Solicitar refeição</a>
-        {% if not user.is_anonymous %} {% if user.is_superuser %}
+        <a href="request-snack">Solicitar refeição</a> 
+        {% if user.is_superuser %}
         <a href="select-dish">Escolher prato do dia</a>
         <a href="all-request-meal">Aprovar solicitações</a>
-        <a href="create-meal">Cadastrar refeições</a>
-        {% endif %} {% endif %} {% if user.is_anonymous %}
+        <a href="create-meal">Cadastrar refeições</a>    
+        {% endif %}
+        {% if user.is_anonymous %}
         <a class="btnLogin" href="{% url 'social:begin' 'suap' %}">Login</a>
+        {% endif %}
+        {% if not user.is_anonymous %}
+        <a href="#">Olá, {{user.first_name}}</a>
+        <a class="btnLogin" href="{% url 'logout' %}">Logout</a>
         {% endif %}
       </nav>
     </header>

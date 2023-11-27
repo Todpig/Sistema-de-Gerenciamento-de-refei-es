@@ -1,7 +1,11 @@
 from django.shortcuts import render
+
+# Create your views here.
+from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, CreateView
 from .models import Snack, RequestSnack
 from apps.core.forms import RequestSnackForm
+from django.contrib.auth import logout
 class IndexView(TemplateView):
     template_name = "index.html"
 
@@ -48,3 +52,6 @@ class SelectDishView(ListView):
         context["almocos"] = Snack.objects.filter(active=True, type="almoço")
         context["jantares"] = Snack.objects.filter(active=True, type="janta")
         return context
+
+def logout_view(request):
+    logout(request)
