@@ -1,6 +1,4 @@
 from django.db import models
-
-# Create your models here.
 import uuid
 from django.db import models
 from django.contrib.auth.models import BaseUserManager
@@ -29,8 +27,8 @@ class Snack(models.Model):
 class RequestSnack(models.Model):
     snack_types = Snack.type_choices
 
-    student_name = models.CharField("Nome do aluno", max_length=150)
-    student_registration = models.CharField("Matrícula do aluno", max_length=150)
+    student_name = models.CharField("Nome do aluno", max_length=150, null=True, blank=True)
+    student_registration = models.CharField("Matrícula do aluno", max_length=150, null=True, blank=True)
     data = models.DateField("Data")
     justification = models.TextField("Justificativa", max_length=300)
     status = models.BooleanField("Situação", default=False, blank=True, null=True)

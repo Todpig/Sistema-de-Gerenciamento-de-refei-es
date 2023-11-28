@@ -1,5 +1,9 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 <div class="ContainerRequest">
+  {% if messages %} {% for message in messages %}
+  <p style="color: red">{{ message }}</p>
+  {% endfor %}
+  {% endif %}
   <div class="ContainerContent">
     <div class="ContainerAlign">
       <img src="{% static 'img/imgLunch.png' %}" alt="" />
@@ -7,11 +11,6 @@
         <h1>Solicitar Refeição</h1>
         <form method="post" class="formulario">
           {% csrf_token %}
-          <label name="student_name" for="student_name" >Nome do aluno</label>
-          {{ form.student_name }}
-
-          <label for="student_registration" name="student_registration">Matricula</label>
-          {{ form.student_registration }}
 
           <label for="data" name="data">Solicitar para o dia:</label>
           {{ form.data }}
@@ -19,7 +18,9 @@
           <label for="type" name="type">Tipo de refeição</label>
           {{form.type}}
 
-          <label for="justification" name="justification">Justificativa da solicitação:</label>
+          <label for="justification" name="justification"
+            >Justificativa da solicitação:</label
+          >
           {{ form.justification }}
 
           <input type="submit" value="Enviar Solicitação" id="request-button" />
