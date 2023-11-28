@@ -45,13 +45,12 @@ def request_snack_view(request):
             type=form.data['type']
         )
         if existing_request.exists():
-            messages.error(request, 'Vocêe já fez uma solicitação para esta data, por favor escolha outra data.')
+            messages.error(request, 'Você já fez uma solicitação para esta data, por favor escolha outra data.')
         elif form.is_valid():
             form.instance.student_name = request.user.first_name + " " + request.user.last_name
             form.instance.student_registration = request.user.username
-
             form.save()
-            messages.success(request, 'Solicitação enviada com sucesso.')
+            # messages.success(request, 'Solicitação enviada com sucesso.')
             return redirect('index')
         else:
             messages.error(request, 'Formulário inválido. Corrija os erros abaixo.')
