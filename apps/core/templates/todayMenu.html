@@ -14,7 +14,7 @@
             <div class="menuLike">
               <p>Cardápio:</p>
               <span class="like">
-                <a href="#" class="link">
+                <a href="{% url 'update-like' almoco_snack.id %}" class="link">
                   <img src="{% static 'img/like.png' %}" alt="like" />
                   <p>{{ almoco_snack.likes }}</p>
                 </a>
@@ -40,7 +40,7 @@
             <div class="menuLike">
               <p>Cardápio:</p>
               <span class="like">
-                <a href="#" class="link">
+                <a href="{% url 'update-like' janta_snack.id %}" class="link">
                   <img src="{% static 'img/like.png' %}" alt="like" />
                   <p>{{ janta_snack.likes }}</p>
                 </a>

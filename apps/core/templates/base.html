@@ -36,12 +36,12 @@
         />
       </a>
       <nav class="navBar">
-        <a href="today-menu">Cardapio do dia</a>
-        <a href="request-snack">Solicitar refeição</a> 
+        <a href="{% url 'todayMenu' %}">Cardapio do dia</a>
+        <a href="{% url 'request-snack' %}">Solicitar refeição</a> 
         {% if user.is_superuser %}
-        <a href="select-dish">Escolher prato do dia</a>
-        <a href="all-request-meal">Aprovar solicitações</a>
-        <a href="create-meal">Cadastrar refeições</a>    
+        <a href="{% url 'select-dish' %}">Escolher prato do dia</a>
+        <a href="{% url 'all-request-meal' %}">Aprovar solicitações</a>
+        <a href="{% url 'create-meal' %}">Cadastrar refeições</a>    
         {% endif %}
         {% if user.is_anonymous %}
         <a class="btnLogin" href="{% url 'social:begin' 'suap' %}">Login</a>
