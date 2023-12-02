@@ -1,7 +1,6 @@
 from datetime import datetime
 from django.shortcuts import redirect, render
-from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import TemplateView, ListView
 from .models import Snack, RequestSnack
 from apps.core.forms import RequestSnackForm
 from django.contrib.auth import logout
@@ -74,6 +73,7 @@ class AllRequestMealView(ListView):
 
 class FormToCreateMealView(TemplateView):
     template_name = "formToCreateMeal.html"
+    
 class SelectDishView(ListView):
     model = Snack
     template_name = "select-dish.html"
@@ -84,5 +84,6 @@ class SelectDishView(ListView):
         context["jantares"] = Snack.objects.filter(active=True, type="janta")
         return context
 
-def logout_view(request):
+def LogoutView(request):
     logout(request)
+    return redirect('index')
