@@ -36,19 +36,23 @@
         />
       </a>
       <nav class="navBar">
-        <a href="{% url 'todayMenu' %}">Cardapio do dia</a>
-        <a href="{% url 'request-snack' %}">Solicitar refeição</a> 
-        {% if user.is_superuser %}
-        <a href="{% url 'select-dish' %}">Escolher prato do dia</a>
-        <a href="{% url 'all-request-meal' %}">Aprovar solicitações</a>
-        <a href="{% url 'create-meal' %}">Cadastrar refeições</a>    
+        {% if not user.coordenator and not user.chef %}
+          <a href="{% url 'todayMenu' %}">Cardapio do dia</a>
+          <a href="{% url 'request-snack' %}">Solicitar refeição</a> 
+        {% endif %}
+        {% if user.coordenator %}
+          <a href="{% url 'all-request-meal' %}">Aprovar solicitações</a>
+        {% endif %}
+        {% if user.chef %}
+          <a href="{% url 'create-meal' %}">Cadastrar refeições</a>    
+          <a href="{% url 'select-dish' %}">Escolher prato do dia</a>
         {% endif %}
         {% if user.is_anonymous %}
-        <a class="btnLogin" href="{% url 'social:begin' 'suap' %}">Login</a>
+          <a class="btnLogin" href="{% url 'social:begin' 'suap' %}">Login</a>
         {% endif %}
         {% if not user.is_anonymous %}
-        <a href="#">Olá, {{user.first_name}}</a>
-        <a class="btnLogin" href="{% url 'logout' %}">Logout</a>
+          <a href="#">Olá, {{user.first_name}}</a>
+          <a class="btnLogin" href="{% url 'logout' %}">Logout</a>
         {% endif %}
       </nav>
     </header>
