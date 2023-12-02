@@ -26,13 +26,19 @@ class Snack(models.Model):
 
 class RequestSnack(models.Model):
     snack_types = Snack.type_choices
-
+    snack_status = (
+        ("aprovado", "aprovado"),
+        ("reprovado", "reprovado"),
+        ("pendente", "pendente"),
+    )
     student_name = models.CharField("Nome do aluno", max_length=150, null=True, blank=True)
     student_registration = models.CharField("Matrícula do aluno", max_length=150, null=True, blank=True)
+    student_email = models.EmailField("Email", max_length=150, null=True, blank=True)
     data = models.DateField("Data")
     justification = models.TextField("Justificativa", max_length=300)
-    status = models.BooleanField("Situação", default=False, blank=True, null=True)
+    status = models.CharField("Situação",blank=True, null=True, choices=snack_status, default="pendente", max_length=15)
     type = models.CharField("Tipo", max_length=15, choices=snack_types)
+    checked = models.BooleanField("Verificado", default=False)
 
     class Meta:
        verbose_name = "Solicitação de Refeição"

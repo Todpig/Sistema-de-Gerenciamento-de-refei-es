@@ -5,7 +5,7 @@
     <div class="HeaderAllRequestNeal">
       <span class="QtdAllRequestNeal"
         ><p>Número de solicitações:</p>
-        <p>{{qtd_requests}}</p></span
+        <strong>{{qtd_requests}}</strong></span
       >
       <h1>Solicitações de refeições</h1>
     </div>
@@ -18,21 +18,21 @@
             <h4>Nome:</h4>
             <p>{{req.student_name}}</p>
             <h4>Tipo:</h4>
-            <p>
-              {{req.type}}
-            </p>
+            <p>{{req.type}}</p>
             <h4>Justificativa:</h4>
-            <p>
-              {{req.justification}}
-            </p>
+            <p>{{req.justification}}</p>
           </span>
           <div class="ContentNealButtons">
-            <a href="#" id="btnApprove">Aprovar</a>
-            <a href="#" id="btnReject">Rejeitar</a>
+            <a href="{% url 'approve-snack' req.id %}" id="btnApprove"
+              >Aprovar</a
+            >
+            <a href="{% url 'reject-snack' req.id %}" id="btnReject"
+              >Rejeitar</a
+            >
           </div>
         </div>
       </div>
-      {% endfor %}  
+      {% endfor %}
     </div>
   </div>
 </div>

@@ -41,7 +41,7 @@
           <a href="{% url 'request-snack' %}">Solicitar refeição</a> 
         {% endif %}
         {% if user.coordenator %}
-          <a href="{% url 'all-request-meal' %}">Aprovar solicitações</a>
+          <a href="{% url 'all-request-meal' %}">Analisar solicitações</a>
         {% endif %}
         {% if user.chef %}
           <a href="{% url 'create-meal' %}">Cadastrar refeições</a>    

@@ -9,5 +9,7 @@ urlpatterns = [
     path("create-meal", FormToCreateMealView.as_view(), name="create-meal"),
     path("meal/select-dish", SelectDishView.as_view(), name="select-dish"),
     path("logout/", LogoutView, name="logout"),
-    path("meal/update-like/<int:pk>", update_like, name="update-like")
+    path("meal/update-like/<int:pk>", update_like, name="update-like"),
+    path("approve-snack/<int:pk>", approveRequestView, name="approve-snack"),
+    path("reject-snack/<int:pk>", rejectRequestView, name="reject-snack"),
 ]

@@ -1,6 +1,8 @@
 from datetime import datetime
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView, ListView
+
+from apps.core.sendEmail import send_approval_email, send_rejection_email
 from .models import Snack, RequestSnack
 from apps.core.forms import RequestSnackForm
 from django.contrib.auth import logout
@@ -22,16 +24,13 @@ def update_like(request, pk):
     snack = Snack.objects.get(pk=pk)
     snack.likes += 1
     snack.save()
-    context = {}
-    context["almoco"] = Snack.objects.filter(type="almoço", snack_to_day=True, active=True)
-    context["janta"] = Snack.objects.filter(type="janta", snack_to_day=True, active=True)
-    return render(request, "todayMenu.html", context)
+    return redirect('all-request-meal')
 
 def request_snack_view(request):
     if request.method == 'POST':
         form = RequestSnackForm(request.POST)
         form.instance.created_by = request.user
-
+        form.instance.status = "pendente"
         try:
             form.instance.data = datetime.strptime(form.data['data'], '%d/%m/%Y').strftime('%Y-%m-%d')
         except ValueError:
@@ -48,6 +47,7 @@ def request_snack_view(request):
         elif form.is_valid():
             form.instance.student_name = request.user.first_name + " " + request.user.last_name
             form.instance.student_registration = request.user.username
+            form.instance.student_email = request.user.email
             form.save()
             # messages.success(request, 'Solicitação enviada com sucesso.')
             return redirect('index')
@@ -66,10 +66,13 @@ class AllRequestMealView(ListView):
     success_url = "/"
 
     def get_context_data(self, **kwargs):
-        context = super(AllRequestMealView, self).get_context_data(**kwargs)
-        context["requests"] = RequestSnack.objects.all()
-        context["qtd_requests"] = RequestSnack.objects.count()
+        context = super(AllRequestMealView, self).get_context_data(**kwargs) 
+        unchecked_requests = RequestSnack.objects.filter(checked=False)    
+        context["requests"] = unchecked_requests.order_by('-data')
+        context["qtd_requests"] = unchecked_requests.count()
+        
         return context
+
 
 class FormToCreateMealView(TemplateView):
     template_name = "formToCreateMeal.html"
@@ -87,3 +90,23 @@ class SelectDishView(ListView):
 def LogoutView(request):
     logout(request)
     return redirect('index')
+
+def approveRequestView(request, pk):
+    snack_request = RequestSnack.objects.get(pk=pk)
+    snack_request.status = "aprovado"
+    snack_request.checked = True
+    snack_request.save()
+
+    send_approval_email(snack_request.student_email, snack_request.data, snack_request.type)
+
+    return redirect('all-request-meal')
+
+def rejectRequestView(request, pk):
+    snack_request = RequestSnack.objects.get(pk=pk)
+    snack_request.status = "reprovado"
+    snack_request.checked = True
+    snack_request.save()
+
+    send_rejection_email(snack_request.student_email, snack_request.data, snack_request.type)
+
+    return redirect('all-request-meal')
