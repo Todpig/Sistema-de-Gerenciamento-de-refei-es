@@ -1,5 +1,4 @@
 from django.urls import path
-from django.contrib.auth import views as auth_views
 from .views import *
 
 urlpatterns = [
@@ -9,6 +8,6 @@ urlpatterns = [
     path("meal/all-request-meal", AllRequestMealView.as_view(), name="all-request-meal"),
     path("create-meal", FormToCreateMealView.as_view(), name="create-meal"),
     path("meal/select-dish", SelectDishView.as_view(), name="select-dish"),
-    path("logout/", auth_views.LogoutView.as_view(), name="logout"),
+    path("logout/", LogoutView, name="logout"),
     path("meal/update-like/<int:pk>", update_like, name="update-like")
 ]

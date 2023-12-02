@@ -2,8 +2,7 @@
 <div class="ContainerRequest">
   {% if messages %} {% for message in messages %}
   <p style="color: red">{{ message }}</p>
-  {% endfor %}
-  {% endif %}
+  {% endfor %} {% endif %}
   <div class="ContainerContent">
     <div class="ContainerAlign">
       <img src="{% static 'img/imgLunch.png' %}" alt="" />
@@ -21,9 +20,15 @@
           <label for="justification" name="justification"
             >Justificativa da solicitação:</label
           >
-          {{ form.justification }}
-
+          {{ form.justification }} 
+          {% if user.is_anonymous %}
+          <a href="{% url 'social:begin' 'suap' %}" id="requestSnack"
+            >Fazer login</a
+          >
+          {% endif %}
+          {% if not user.is_anonymous %}
           <input type="submit" value="Enviar Solicitação" id="request-button" />
+          {% endif %}
         </form>
       </div>
     </div>
