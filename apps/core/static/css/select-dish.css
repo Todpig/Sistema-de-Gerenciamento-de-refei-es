@@ -1,96 +1,112 @@
 .select-dish {
-    padding: 2rem 0;
+  padding: 2rem 0;
 }
 
 .select-dish-container {
-    background-color: #202024;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 0 4rem 0;
-    border-radius: 0.5rem;
-    gap: 2rem;
+  background-color: #202024;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 4rem 0;
+  border-radius: 0.5rem;
+  gap: 2rem;
 }
 
 .registered-dish {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1200px;
-    width: 80%;
-    gap: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  width: 80%;
+  gap: 28px;
 }
 
 .select-dish-container registered-dish {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .registered-dish h2 {
-    color: #00875F;
+  color: #00875f;
 }
 
-
 .select-dish-container h1 {
-    color: #00875F;
-    font-size: 3rem;
-    text-align: center;
-    margin: 0;
+  color: #00875f;
+  font-size: 3rem;
+  text-align: center;
+  margin: 0;
 }
 
 .registered-dish-container {
-    display: flex;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    gap: 3rem;
-    justify-content: center;
+  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
 }
 
 .card-dish {
-    max-width: 230px;
-    padding: 0.5rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #323238;
-    border-radius: 0.5rem;
+  max-width: 230px;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #323238;
+  border-radius: 0.5rem;
 }
 
 .card-dish img {
-    max-width: 130px;
-    width: 60%;
-    height: 92px;
+  max-width: 130px;
+  width: 60%;
+  height: 92px;
+}
+
+#imageRemove {
+  width: 32px;  
+  height: 32px;
+}
+#imageRemove:hover {
+  opacity: 80%;
+}
+
+.selectDishToDay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-height: 32px;
 }
 
 .description {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 90%;
-    padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 90%;
+  padding: 0.5rem;
 }
 
 .description-title {
-    font-weight: bold;
-    width: 100%;
+  font-weight: bold;
+  width: 100%;
 }
 
 .description-text {
-    color: #A9A9B2;
-    width: 90%;
+  color: #a9a9b2;
+  width: 90%;
 }
 
 .btn-select-dish {
-    background-color: #00875F;
-    border: none;
-    color: white;
-    font-weight: bold;
-    padding: 0.4rem 1.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
+  background-color: #00875f;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.4rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .btn-select-dish:hover {
-    cursor: pointer;
-    background: #00b37e;
+  cursor: pointer;
+  background: #00b37e;
 }

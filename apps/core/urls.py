@@ -12,4 +12,6 @@ urlpatterns = [
     path("meal/update-like/<int:pk>", update_like, name="update-like"),
     path("approve-snack/<int:pk>", approveRequestView, name="approve-snack"),
     path("reject-snack/<int:pk>", rejectRequestView, name="reject-snack"),
+    path("select-snack/<int:pk>", selectSnackToDayView, name="select-snack"),
+    path("remove-snack/<int:pk>", removeSnackToDayView, name="remove-snack"),
 ]

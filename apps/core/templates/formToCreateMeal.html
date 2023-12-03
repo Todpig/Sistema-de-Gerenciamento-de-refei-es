@@ -1,32 +1,39 @@
-{% extends "base.html" %} {% load static %} {% block content %} 
-{% if user.is_superuser %} {% if not user.is_anonymous %}
-<div class="ContainerFormToCreateMeal">
-  <h1>Cadastre aqui as refeições</h1>
-  <div class="ContentFormToCreate">
-    <form action="#" class="formCreateMeal" method="POST">
-      {% csrf_token %}
-      <h3>Cadastrar Refeição</h3>
-      <div class="ContainerContentFormMeal">
-        <h4>Tipo da refeição:</h4>
-        <span class="check">
-          <input type="checkbox" />
-          <p>Almoço</p>
-        </span>
-        <span class="check">
-          <input type="checkbox" />
-          <p>Janta</p>
-        </span>
+{% extends "base.html" %} 
+{% load static %} 
+{% block content %} 
+  {% if user.is_superuser %} 
+    {% if not user.is_anonymous %}
+      <div class="ContainerFormToCreateMeal">
+        <h1>Cadastre aqui as refeições</h1>
+        <div class="ContentFormToCreate">
+          <form action="{% url 'create-meal' %}" class="formCreateMeal" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>Cadastrar Refeição</h3>
+
+            <div class="ContainerContentFormMeal">
+              <h4>Tipo da refeição:</h4>
+              <label>
+                <input type="checkbox" name="type" value="almoço"> Almoço
+              </label>
+              <label>
+                <input type="checkbox" name="type" value="janta"> Janta
+              </label>
+            </div>
+
+            <div class="ContainerContentFormMeal">
+              <h4>Imagem:</h4>
+              {{ form.image }}
+            </div>
+
+            <div class="ContainerContentFormMeal">
+              <h4>Descrição do cardápio:</h4>
+              {{ form.description }}
+            </div>
+
+            <button type="submit">Criar refeição</button>
+          </form>
+        </div>
       </div>
-      <div class="ContainerContentFormMeal">
-        <h4>Tipo da refeição:</h4>
-        <input type="file" />
-      </div>
-      <div class="ContainerContentFormMeal">
-        <h4>Descrição do cardápio:</h4>
-        <textarea name=""></textarea>
-      </div>
-      <button type="submit">Criar refeição</button>
-    </form>
-  </div>
-</div>
-{% endif %} {% endif %} {% endblock %}
+    {% endif %}
+  {% endif %}
+{% endblock %}
