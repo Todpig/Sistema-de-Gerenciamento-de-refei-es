@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, ListView
 
 from apps.core.sendEmail import send_approval_email, send_rejection_email
 from .models import Snack, RequestSnack
-from apps.core.forms import RequestSnackForm
+from apps.core.forms import RequestSnackForm, SnackCreateForm
 from django.contrib.auth import logout
 from django.contrib import messages
 class IndexView(TemplateView):
@@ -24,7 +24,7 @@ def update_like(request, pk):
     snack = Snack.objects.get(pk=pk)
     snack.likes += 1
     snack.save()
-    return redirect('all-request-meal')
+    return redirect('todayMenu')
 
 def request_snack_view(request):
     if request.method == 'POST':
@@ -76,6 +76,19 @@ class AllRequestMealView(ListView):
 
 class FormToCreateMealView(TemplateView):
     template_name = "formToCreateMeal.html"
+    form_class = SnackCreateForm
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return self.render_to_response({'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES)
+        if form.is_valid():
+            snack = form.save()
+            return redirect('create-meal')
+        else:
+            return self.render_to_response({'form': form})
     
 class SelectDishView(ListView):
     model = Snack
@@ -83,8 +96,8 @@ class SelectDishView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(SelectDishView, self).get_context_data(**kwargs)
-        context["almocos"] = Snack.objects.filter(active=True, type="almoço")
-        context["jantares"] = Snack.objects.filter(active=True, type="janta")
+        context["almocos"] = Snack.objects.filter(active=True, type="almoço").order_by("?")
+        context["jantares"] = Snack.objects.filter(active=True, type="janta").order_by("?")
         return context
 
 def LogoutView(request):
@@ -110,3 +123,15 @@ def rejectRequestView(request, pk):
     send_rejection_email(snack_request.student_email, snack_request.data, snack_request.type)
 
     return redirect('all-request-meal')
+
+def selectSnackToDayView(request, pk):
+    snack = Snack.objects.get(pk=pk)
+    snack.snack_to_day = True
+    snack.save()
+    return redirect('select-dish')
+
+def removeSnackToDayView(request, pk):
+    snack = Snack.objects.get(pk=pk)
+    snack.snack_to_day = False
+    snack.save()
+    return redirect('select-dish')
