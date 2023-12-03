@@ -7,6 +7,21 @@ from .models import Snack, RequestSnack
 from apps.core.forms import RequestSnackForm, SnackCreateForm
 from django.contrib.auth import logout
 from django.contrib import messages
+from Gerenciamento_de_Refeicao.settings import (
+    AWS_ACCESS_KEY_ID,
+    AWS_S3_REGION_NAME,
+    AWS_SECRET_ACCESS_KEY,
+    URL_SQS,
+)
+import boto3
+import uuid
+
+sqs = boto3.client(
+    "sqs",
+    aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+    region_name="sa-east-1",
+)
 class IndexView(TemplateView):
     template_name = "index.html"
 
@@ -78,6 +93,14 @@ class FormToCreateMealView(TemplateView):
     template_name = "formToCreateMeal.html"
     form_class = SnackCreateForm
 
+    def send_message(self, message_body, message_group_id):
+        sqs.send_message(
+            QueueUrl=URL_SQS,
+            MessageBody=message_body,
+            MessageGroupId=message_group_id,
+            MessageDeduplicationId=str(uuid.uuid4())
+        )
+
     def get(self, request, *args, **kwargs):
         form = self.form_class()
         return self.render_to_response({'form': form})
@@ -86,9 +109,14 @@ class FormToCreateMealView(TemplateView):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
             snack = form.save()
+            snackType = snack.type
+            if snackType == "almoço":
+                snackType = "almoco"
+            self.send_message(snack.description, snackType)
             return redirect('create-meal')
         else:
             return self.render_to_response({'form': form})
+   
     
 class SelectDishView(ListView):
     model = Snack
