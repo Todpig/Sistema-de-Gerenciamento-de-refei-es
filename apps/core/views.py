@@ -112,7 +112,7 @@ class FormToCreateMealView(TemplateView):
             snackType = snack.type
             if snackType == "almoço":
                 snackType = "almoco"
-            self.send_message(snack.description, snackType)
+            self.send_message(f'Create the snack {snack.description}', snackType)
             return redirect('create-meal')
         else:
             return self.render_to_response({'form': form})

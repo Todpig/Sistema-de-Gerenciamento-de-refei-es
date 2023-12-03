@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% load static %} {% block content %} 
-{% if user.is_superuser %} {% if not user.is_anonymous %}
+{% if user.coordenator %} {% if not user.is_anonymous %}
 <div class="ContainerAllRequestNeal">
   <div class="ContentAllRequestNeal">
     <div class="HeaderAllRequestNeal">
