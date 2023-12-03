@@ -162,7 +162,7 @@ AUTH_USER_MODEL = "core.User"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 #CSRF_TRUSTED_ORIGINS = ["http://lanele.vitorrafael.com.br"]
 
