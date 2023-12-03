@@ -1,7 +1,7 @@
 {% extends "base.html" %} 
 {% load static %} 
 {% block content %} 
-  {% if user.is_superuser %} 
+  {% if user.chef %} 
     {% if not user.is_anonymous %}
       <div class="ContainerFormToCreateMeal">
         <h1>Cadastre aqui as refeições</h1>
