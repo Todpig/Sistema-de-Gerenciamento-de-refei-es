@@ -3,12 +3,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 94px);
+  height: auto;
   width: 100%;
 }
 
 .ContainerContent {
-  height: 800px;
+  height: auto;
   background-color: #202024;
   margin: 0 auto;
   display: flex;
@@ -49,7 +49,7 @@
 }
 
 .formulario label {
-  color: #505059;
+  color: #fff;
   font-size: 1.2rem;
 }
 
@@ -108,6 +108,43 @@
   transition: 0.6s;
 }
 
+@media (max-width: 850px) {
+  .ContainerAlign img {
+    display: none;
+  }
+
+  .ContainerRequest {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .ContainerContent {
+    padding: 2rem 1rem;
+  }
+
+  .ContainerTxtRequest h1 {
+    font-size: 1.5rem;
+  }
+
+  .ContainerAlign {
+    max-width: 90%;
+  }
+
+  .formulario {
+    width: 100%;
+  }
+
+  .formulario label {
+    font-size: 1rem;
+  }
+
+  .ContainerTxtRequest {
+    gap: 1rem;
+  }
+
+}
+
 @media (max-width: 768px) {
   .ContainerAlign {
     display: flex;
@@ -118,6 +155,11 @@
     width: 70%;
     height: 50vh;
   }
+
+
+
+
+
 }
 
 .request-dinner {

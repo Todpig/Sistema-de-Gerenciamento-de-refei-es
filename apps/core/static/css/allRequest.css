@@ -11,10 +11,11 @@
 
 .ContentAllRequestNeal {
   overflow-y: scroll;
-    max-height: 800px;
-    display: flex;
-    flex-direction: column;
-    gap: 31px;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  padding: 2em 0;
 }
 .ContentAllRequestNeal::-webkit-scrollbar {
   width: 12px;
@@ -26,7 +27,7 @@
 }
 
 .ContentAllRequestNeal::-webkit-scrollbar-track {
-  background: #202024;
+  background: #161619;
 }
 
 .QtdAllRequestNeal {
@@ -47,6 +48,7 @@
 .HeaderAllRequestNeal > h1 {
   color: #00875e;
   font-size: 48px;
+  text-align: center;
 }
 
 .HeaderAllRequestNeal {
@@ -69,7 +71,6 @@
   align-items: center;
   background: #323238;
   width: 600px;
-  height: 180px;
   border: 0;
   border-radius: 4px;
   padding: 16px 0;
@@ -160,19 +161,19 @@
     background: #00875e;
     font-weight: bold;
     color: #e1e1e6;
-    border-radius: 50%;
+    border-radius: 1em;
     width: 32px;
     height: 32px;
-    padding: 8px;
+    padding: 1em;
     left: 16px;
   }
   .Neal {
     width: 400px;
-    height: 100px;
+    height: auto;
   }
   .Neal > h1 {
     font-size: 16px;
-  }
+  } 
   .ContentNealTxt > h4 {
     font-size: 12px;
   }
@@ -192,4 +193,40 @@
     text-align: center;
     font-size: 10px;
   }
+}
+
+
+@media (max-width: 768px) {
+
+  .Neal {
+    max-width: 90%;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .ContentNeal {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ContentNealTxt {
+    gap: 1em;
+  }
+
+  .ContentNealButtons {
+    margin: 0;
+  }
+
+  .HeaderAllRequestNeal > h1 {
+    font-size: 1.5rem;
+  }
+
+  #btnApprove {
+    padding: 1em 2em;
+  }
+
+  #btnReject {
+    padding: 1em 2em;
+  }
+
 }

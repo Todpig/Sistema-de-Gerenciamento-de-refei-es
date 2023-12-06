@@ -3,11 +3,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 800px;
   border-radius: 8px;
   background: #202024;
   gap: 45px;
   margin-bottom: 32px;
+  padding: 2rem 0;
 }
 .ContainerMenu > h1 {
   color: #00875f;
@@ -24,9 +24,10 @@
   display: flex;
   justify-content: center;
   width: 400px;
-  height: 500px;
+  height: auto;
   background: #323238;
   border-radius: 8px;
+  padding: 1rem 0rem;
 }
 .snacks {
   display: flex;
@@ -44,6 +45,16 @@
   color: #a9a9b2;
   font-size: 20px;
 }
+
+.snacks .snack-description {
+    max-width: 180px;
+    height: auto;
+    font-size: 1rem;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 90%;
+}
+
 .ContainerImgSnack {
   display: flex;
   align-items: center;
@@ -160,7 +171,8 @@
     font-size: 10px;
   }
   .ContainerMenu {
-    height: 1000px;
+    height: auto;
+    padding: 1.5rem 0rem;
   }
   .ContainerMenu > h1 {
     font-size: 32px;
@@ -172,7 +184,7 @@
   }
   .ContainerTwoSnacks {
     width: 224px;
-    height: 320px;
+    
   }
   .snacks {
     width: 180px;
@@ -184,8 +196,8 @@
     font-size: 12px;
   }
   #requestSnack {
-    padding: 2px 24px;
-    font-size: 14px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
     margin-bottom: 8px;
   }
   .ContainerImgSnack {
@@ -200,5 +212,74 @@
   }
   .link > p {
     font-size: 10px;
+  }
+}
+
+@media (max-width: 768px){
+
+  .ContainerTwoSnacks {
+    padding: 1rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .ContainerMenu > h1 {
+    text-align: center;
+  }
+
+  .ContainerSnack {
+    flex-direction: column;
+    gap: 1rem;
+    width: 90%;
+    align-items: center;
+  }
+
+  .ContainerImgSnack > img {
+    height: 80%;
+  }
+
+  .snacks {
+    width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  .snacks h1 {
+    text-align: center;
+  }
+
+  .snacks .snack-description {
+    height: auto;
+    font-size: 1rem;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .ContainerMenu {
+    max-width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  .clock {
+    height: 75px;
+  }
+
+  .menuLike {
+    width: auto;
+    gap: 2rem;
+  }
+
+}
+
+@media (max-width: 320px){
+  .clock {
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
   }
 }

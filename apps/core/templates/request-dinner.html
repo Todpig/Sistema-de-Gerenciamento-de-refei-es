@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="ContainerRequest">
+    <div class="ContainerContent">
+        <div class="ContainerAlign">
+        <img src ="{% static 'img/imgDinner.png' %}" alt=''/>
+            <div class="ContainerTxtRequest">
+                <h1>Solicitar Jantar</h1>
+                <form action="#" class="formulario">
+                    <label for="dinner">Solicitar para o dia:</label>
+                    <input type="date" id="dish" name="dish">
+                    <label for="justification">Justificativa da solicitação:</label>
+                    <textarea id="justification" name="justification" rows="10" cols="50"></textarea>
+                    <input type="submit" value ="Enviar Solicitação" id="request-button">
+                </form>
+                <a href="{% url 'request-snack' %}" class="request-snack">Solicitar almoço</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

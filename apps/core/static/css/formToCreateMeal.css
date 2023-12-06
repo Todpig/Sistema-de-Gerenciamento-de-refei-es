@@ -8,7 +8,8 @@
   border-radius: 8px;
   margin: 32px 0;
   overflow: hidden;
-  height: 800px;
+  height: auto;
+  padding: 2rem 0.5rem;
 }
 .ContentFormToCreate {
   display: flex;
@@ -49,7 +50,7 @@
 }
 .formCreateMeal button {
   width: 256px;
-  height: 32px;
+
   background: #00875f;
   padding: 8px 64px;
   border: 0;
@@ -78,4 +79,42 @@
 .ContainerContentFormMeal textarea {
   width: 100%;
   height: 80px;
+}
+
+@media (max-width: 768px) {
+  .ContainerFormToCreateMeal {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .ContainerFormToCreateMeal h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .ContentFormToCreate {
+    max-width: 90%;
+  }
+
+  .formCreateMeal {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .formCreateMeal h3 {
+    width: 100%;
+    font-size: medium;
+  }
+
+  .ContainerContentFormMeal {
+    width: 90%;
+  }
+
+  .formCreateMeal button {
+    padding: 1rem 2rem;
+    width: 90%;
+    text-align: center;
+  }
+
 }

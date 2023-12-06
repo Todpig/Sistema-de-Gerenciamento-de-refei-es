@@ -3,6 +3,7 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -51,19 +52,49 @@
           <a class="btnLogin" href="{% url 'social:begin' 'suap' %}">Login</a>
         {% endif %}
         {% if not user.is_anonymous %}
-          <a href="#">Olá, {{user.first_name}}</a>
+          <p href="#">Olá, {{user.first_name}}</p>
           <a class="btnLogin" href="{% url 'logout' %}">Logout</a>
         {% endif %}
       </nav>
     </header>
+
+    <div class="fade" onclick="mostrarMenu()"></div>
+    <div class="header-mobile">
+      <a href="/">
+        <img src="/static/img/logo.png" alt="logo do gerenciamneto de refeição" width="100px" height="80px" >
+      </a>
+      <img src="{% static 'img/burger-menu.svg' %}" width="32px" height="32px" alt="" onclick="mostrarMenu()">
+      
+      <nav class="navBar-mobile">
+        {% if not user.coordenator and not user.chef %}
+          <a href="{% url 'todayMenu' %}">Cardapio do dia</a>
+          <a href="{% url 'request-snack' %}">Solicitar refeição</a> 
+        {% endif %}
+        {% if user.coordenator %}
+          <a href="{% url 'all-request-meal' %}">Analisar solicitações</a>
+        {% endif %}
+        {% if user.chef %}
+          <a href="{% url 'create-meal' %}">Cadastrar refeições</a>    
+          <a href="{% url 'select-dish' %}">Escolher prato do dia</a>
+        {% endif %}
+        {% if user.is_anonymous %}
+          <a class="btnLogin" href="{% url 'social:begin' 'suap' %}">Login</a>
+        {% endif %}
+        {% if not user.is_anonymous %}
+          <a href="#">Olá, {{user.first_name}}</a>
+          <a class="btnLogin" href="{% url 'logout' %}">Logout</a>
+        {% endif %}
+      </nav>
+    </div>
+
     {% block content %} {% endblock %}
 
     <footer class="footer">
       <div class="OptionsFooter">
         <a href="#header">Voltar ao topo</a>
         <div class="ContentImg">
-          <p>Sistema de gerenciamento de refeições do IFRN 2023</p>
-          <img src="{% static 'img/copyright.svg'%}" />
+          <p>Sistema de gerenciamento de refeições do IFRN 2023 &copy;</p>
+          
         </div>
       </div>
       <div class="OptionsFooter">
@@ -79,5 +110,8 @@
         </div>
       </div>
     </footer>
+
+    <script src="{% static 'js/mobileMenu.js' %}"></script>
+
   </body>
 </html>
