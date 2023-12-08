@@ -47,9 +47,21 @@ class MyRequestsView(ListView):
 
 def update_like(request, pk):
     snack = Snack.objects.get(pk=pk)
+    
+    liked_snacks = request.COOKIES.get('liked_snacks', '')
+    
+    if f'{pk}' in liked_snacks:
+        messages.error(request, 'Você já curtiu esta refeição')
+        return redirect('todayMenu')
+    
     snack.likes += 1
     snack.save()
-    return redirect('todayMenu')
+    
+    liked_snacks += f'{pk},'
+    response = redirect('todayMenu')
+    response.set_cookie('liked_snacks', liked_snacks)
+    
+    return response
 
 def request_snack_view(request):
     if request.method == 'POST':

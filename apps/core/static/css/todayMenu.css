@@ -234,9 +234,9 @@
     align-items: center;
   }
 
-  .ContainerImgSnack > img {
+  /* .ContainerImgSnack > img {
     height: 80%;
-  }
+  } */
 
   .snacks {
     width: 100%;
