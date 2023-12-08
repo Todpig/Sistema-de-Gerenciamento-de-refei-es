@@ -34,7 +34,17 @@ class TodayMenu(ListView):
         context["almoco"] = Snack.objects.filter(type="almoço", snack_to_day=True, active=True)
         context["janta"] = Snack.objects.filter(type="janta", snack_to_day=True, active=True)
         return context
-    
+
+class MyRequestsView(ListView):
+    model = RequestSnack
+    template_name = "myRequests.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(MyRequestsView, self).get_context_data(**kwargs)
+        context["myRequests"] = RequestSnack.objects.filter(student_registration=self.request.user.username).order_by('-data')
+        return context
+
+
 def update_like(request, pk):
     snack = Snack.objects.get(pk=pk)
     snack.likes += 1

@@ -2,7 +2,6 @@ import os
 import django
 import random
 from faker import Faker
-from django.utils import timezone
 from django.core.management.base import BaseCommand
 from apps.core.models import Snack, RequestSnack, User
 
@@ -27,7 +26,7 @@ class Command(BaseCommand):
             RequestSnack.objects.create(
                 student_name=fake.name(),
                 student_registration=fake.random_int(min=1000, max=9999),
-                student_email=fake.email(),
+                student_email="luccasraffael6@gmail.com",
                 data=fake.date_between(start_date='-30d', end_date='today'),
                 justification=fake.text(100),
                 status="pendente",
@@ -35,11 +34,11 @@ class Command(BaseCommand):
                 checked=False
             )
 
-    def create_fake_users(self, num_users=100):
+    def create_fake_users(self, num_users=20):
         for _ in range(num_users):
             User.objects.create_user(
                 username=fake.user_name(),
-                email="luccasraffael6@gmail.com",
+                email=fake.email(),
                 password=fake.password(),
                 first_name=fake.first_name(),
                 last_name=fake.last_name(),

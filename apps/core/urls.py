@@ -6,6 +6,7 @@ urlpatterns = [
     path("meal/today-menu", TodayMenu.as_view(), name="todayMenu"),
     path("meal/request-snack", request_snack_view, name="request-snack"),
     path("meal/all-request-meal", AllRequestMealView.as_view(), name="all-request-meal"),
+    path("meal/my-requests", MyRequestsView.as_view(), name="my-requests"),
     path("meal/create-meal", FormToCreateMealView.as_view(), name="create-meal"),
     path("meal/select-dish", SelectDishView.as_view(), name="select-dish"),
     path("logout/", LogoutView, name="logout"),

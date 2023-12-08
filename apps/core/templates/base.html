@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{% static 'css/allRequest.css' %}" />
     <link rel="stylesheet" href="{% static 'css/formToCreateMeal.css' %}" />
     <link rel="stylesheet" href="{% static 'css/select-dish.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/myRequests.css' %}" />
     <title>Gerenciamento de Refeições</title>
   </head>
   <body class="body">
@@ -39,6 +40,7 @@
       <nav class="navBar">
         {% if not user.coordenator and not user.chef %}
           <a href="{% url 'todayMenu' %}">Cardapio do dia</a>
+          <a href="{% url 'my-requests' %}">Minhas solicitações</a> 
           <a href="{% url 'request-snack' %}">Solicitar refeição</a> 
         {% endif %}
         {% if user.coordenator %}
