@@ -38,7 +38,7 @@ class RequestSnack(models.Model):
     justification = models.TextField("Justificativa", max_length=300)
     status = models.CharField("Situação", blank=True, null=True, choices=snack_status, default="pendente", max_length=15)
     type = models.CharField("Tipo", max_length=15, choices=snack_types)
-    checked = models.CharField("Verificado", max_length=20, null=True, blank=True)
+    checked = models.BooleanField("Verificado", default=False, null=True, blank=True)
 
     class Meta:
         verbose_name = "Solicitação de Refeição"

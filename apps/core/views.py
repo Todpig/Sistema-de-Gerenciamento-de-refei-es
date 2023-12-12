@@ -42,7 +42,7 @@ class MyRequestsView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(MyRequestsView, self).get_context_data(**kwargs)
-        context["myRequests"] = RequestSnack.objects.filter(student_registration=self.request.user.username).order_by('-data')
+        context["myRequests"] = RequestSnack.objects.filter(user=self.request.user).order_by('-data')
         return context
 
 
