@@ -100,6 +100,7 @@ class RequestSnackView(TemplateView):
             print(form.errors)
             return render(request, 'request-snack.html', {'form': form})
 
+
 class AllRequestMealView(ListView):
     model = RequestSnack
     template_name = "allRequestMeal.html"
