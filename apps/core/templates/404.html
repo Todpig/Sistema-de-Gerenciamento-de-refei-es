@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Página não encontrada</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #202024; /* Cor de fundo */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: #e1e1e6;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 5em;
+        color: #00b37e;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.5em;
+        color: #7c7c8a;
+      }
+
+      a {
+        color: #00875f;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>404</h1>
+      <p>
+        Oops! A página que você está procurando não foi encontrada ou você não
+        tem permissão para acessa-la.
+      </p>
+      <p>Volte para a <a href="{% url 'index' %}">página inicial</a>.</p>
+    </div>
+  </body>
+</html>
