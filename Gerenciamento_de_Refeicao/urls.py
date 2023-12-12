@@ -24,3 +24,7 @@ urlpatterns = [
     path("", include("apps.core.urls")),
     path("", include("social_django.urls"), name="social"),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = 'Gerenciamento de refeição'
+admin.site.site_title = 'Gerenciamento de refeição'
+admin.site.index_title = 'Gerenciamento de refeição'

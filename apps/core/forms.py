@@ -8,9 +8,7 @@ class RequestSnackForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(RequestSnackForm, self).__init__(*args, **kwargs)
-        self.fields['student_name'].required = False
-        self.fields['student_registration'].required = False
-        self.fields['student_email'].required = False
+        self.fields['user'].required = False
 
 class SnackCreateForm(forms.ModelForm):
     class Meta:

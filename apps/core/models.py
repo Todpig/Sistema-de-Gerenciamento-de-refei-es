@@ -3,6 +3,7 @@ import uuid
 from django.db import models
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import (AbstractBaseUser,PermissionsMixin)
+from django.conf import settings
 
 
 def get_file_path(_instance, filename):
@@ -31,17 +32,16 @@ class RequestSnack(models.Model):
         ("reprovado", "reprovado"),
         ("pendente", "pendente"),
     )
-    student_name = models.CharField("Nome do aluno", max_length=150, null=True, blank=True)
-    student_registration = models.CharField("Matrícula do aluno", max_length=150, null=True, blank=True)
-    student_email = models.EmailField("Email", max_length=150, null=True, blank=True)
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Usuário", default=1)
     data = models.DateField("Data")
     justification = models.TextField("Justificativa", max_length=300)
-    status = models.CharField("Situação",blank=True, null=True, choices=snack_status, default="pendente", max_length=15)
+    status = models.CharField("Situação", blank=True, null=True, choices=snack_status, default="pendente", max_length=15)
     type = models.CharField("Tipo", max_length=15, choices=snack_types)
     checked = models.CharField("Verificado", max_length=20, null=True, blank=True)
 
     class Meta:
-       verbose_name = "Solicitação de Refeição"
+        verbose_name = "Solicitação de Refeição"
 
 
 class UserManager(BaseUserManager):

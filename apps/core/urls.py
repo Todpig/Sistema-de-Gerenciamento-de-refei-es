@@ -4,7 +4,7 @@ from .views import *
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
     path("meal/today-menu", TodayMenu.as_view(), name="todayMenu"),
-    path("meal/request-snack", request_snack_view, name="request-snack"),
+    path("meal/request-snack", RequestSnackView.as_view(), name="request-snack"),
     path("meal/all-request-meal", AllRequestMealView.as_view(), name="all-request-meal"),
     path("meal/my-requests", MyRequestsView.as_view(), name="my-requests"),
     path("meal/create-meal", FormToCreateMealView.as_view(), name="create-meal"),

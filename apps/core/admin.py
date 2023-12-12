@@ -8,4 +8,4 @@ class SnackAdmin(admin.ModelAdmin):
 
 @admin.register(RequestSnack)
 class RequestSnackAdmin(admin.ModelAdmin):
-    list_display = ("student_name", "student_registration", "data", "justification", "status", "type")
+    list_display = ("user", "data", "justification", "status", "type")

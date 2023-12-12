@@ -1,7 +1,8 @@
 from datetime import datetime
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView, ListView
-
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from apps.core.sendEmail import send_approval_email, send_rejection_email
 from .models import Snack, RequestSnack
 from apps.core.forms import RequestSnackForm, SnackCreateForm
@@ -63,10 +64,19 @@ def update_like(request, pk):
     
     return response
 
-def request_snack_view(request):
-    if request.method == 'POST':
-        form = RequestSnackForm(request.POST)
-        form.instance.created_by = request.user
+@method_decorator(login_required, name='dispatch')
+class RequestSnackView(TemplateView):
+    template_name = 'request-snack.html'
+    form_class = RequestSnackForm
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return self.render_to_response({'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        form.instance.user = request.user  # Associar a solicitação ao usuário logado
+
         form.instance.status = "pendente"
         try:
             form.instance.data = datetime.strptime(form.data['data'], '%d/%m/%Y').strftime('%Y-%m-%d')
@@ -75,26 +85,20 @@ def request_snack_view(request):
             return render(request, 'request-snack.html', {'form': form})
 
         existing_request = RequestSnack.objects.filter(
-            student_registration=request.user.username,
+            user=request.user,
             data=form.instance.data,
             type=form.data['type']
         )
+
         if existing_request.exists():
             messages.error(request, 'Você já fez uma solicitação para esta data, por favor escolha outra data.')
         elif form.is_valid():
-            form.instance.student_name = request.user.first_name + " " + request.user.last_name
-            form.instance.student_registration = request.user.username
-            form.instance.student_email = request.user.email
             form.save()
-            # messages.success(request, 'Solicitação enviada com sucesso.')
             return redirect('index')
         else:
             messages.error(request, 'Formulário inválido. Corrija os erros abaixo.')
             print(form.errors)
-    else:
-        form = RequestSnackForm()
-
-    return render(request, 'request-snack.html', {'form': form})
+            return render(request, 'request-snack.html', {'form': form})
 
 class AllRequestMealView(ListView):
     model = RequestSnack
@@ -160,7 +164,7 @@ def approveRequestView(request, pk):
     snack_request.checked = True
     snack_request.save()
 
-    send_approval_email(snack_request.student_email, snack_request.data, snack_request.type)
+    send_approval_email(snack_request.user.email, snack_request.data, snack_request.type)
 
     return redirect('all-request-meal')
 
@@ -170,7 +174,7 @@ def rejectRequestView(request, pk):
     snack_request.checked = True
     snack_request.save()
 
-    send_rejection_email(snack_request.student_email, snack_request.data, snack_request.type)
+    send_rejection_email(snack_request.user.email, snack_request.data, snack_request.type)
 
     return redirect('all-request-meal')
 
