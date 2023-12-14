@@ -12,7 +12,7 @@
           {% csrf_token %}
 
           <label for="data" name="data">Solicitar para o dia:</label>
-          {{ form.data }}
+          <input type="date" id="dish" name="data" required>
 
           <label for="type" name="type">Tipo de refeição</label>
           {{form.type}}
