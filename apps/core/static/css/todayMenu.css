@@ -157,12 +157,11 @@
 
 @media (max-width: 1024px) {
   .clock {
-    height: 48px;
-    width: 256px;
+    width: 280px;
   }
   .clock div {
     height: 32px;
-    width: 64px;
+    width: 80px;
   }
   .clock span {
     font-size: 14px;

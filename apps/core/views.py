@@ -36,6 +36,7 @@ class TodayMenu(ListView):
         context["janta"] = Snack.objects.filter(type="janta", snack_to_day=True, active=True)
         return context
 
+@method_decorator(login_required, name='dispatch')
 class MyRequestsView(ListView):
     model = RequestSnack
     template_name = "myRequests.html"
@@ -75,32 +76,27 @@ class RequestSnackView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
-        form.instance.user = request.user  # Associar a solicitação ao usuário logado
+        form.instance.user = request.user 
 
         form.instance.status = "pendente"
-        try:
-            form.instance.data = datetime.strptime(form.data['data'], '%d/%m/%Y').strftime('%Y-%m-%d')
-        except ValueError:
-            messages.error(request, 'Formato de data inválido. Use o formato DD/MM/AAAA.')
-            return render(request, 'request-snack.html', {'form': form})
-
+    
         existing_request = RequestSnack.objects.filter(
             user=request.user,
-            data=form.instance.data,
+            data=form.data['data'],
             type=form.data['type']
         )
 
         if existing_request.exists():
             messages.error(request, 'Você já fez uma solicitação para esta data, por favor escolha outra data.')
+            return render(request, 'request-snack.html', {'form': form})
         elif form.is_valid():
             form.save()
             return redirect('index')
         else:
             messages.error(request, 'Formulário inválido. Corrija os erros abaixo.')
-            print(form.errors)
             return render(request, 'request-snack.html', {'form': form})
 
-
+@method_decorator(login_required, name='dispatch')
 class AllRequestMealView(ListView):
     model = RequestSnack
     template_name = "allRequestMeal.html"
@@ -115,7 +111,7 @@ class AllRequestMealView(ListView):
         
         return context
 
-
+@method_decorator(login_required, name='dispatch')
 class FormToCreateMealView(TemplateView):
     template_name = "formToCreateMeal.html"
     form_class = SnackCreateForm
@@ -144,7 +140,7 @@ class FormToCreateMealView(TemplateView):
         else:
             return self.render_to_response({'form': form})
    
-    
+@method_decorator(login_required, name='dispatch') 
 class SelectDishView(ListView):
     model = Snack
     template_name = "select-dish.html"
@@ -159,6 +155,7 @@ def LogoutView(request):
     logout(request)
     return redirect('index')
 
+@login_required
 def approveRequestView(request, pk):
     snack_request = RequestSnack.objects.get(pk=pk)
     snack_request.status = "aprovado"
@@ -169,6 +166,7 @@ def approveRequestView(request, pk):
 
     return redirect('all-request-meal')
 
+@login_required
 def rejectRequestView(request, pk):
     snack_request = RequestSnack.objects.get(pk=pk)
     snack_request.status = "reprovado"
@@ -179,12 +177,14 @@ def rejectRequestView(request, pk):
 
     return redirect('all-request-meal')
 
+@login_required
 def selectSnackToDayView(request, pk):
     snack = Snack.objects.get(pk=pk)
     snack.snack_to_day = True
     snack.save()
     return redirect('select-dish')
 
+@login_required
 def removeSnackToDayView(request, pk):
     snack = Snack.objects.get(pk=pk)
     snack.snack_to_day = False

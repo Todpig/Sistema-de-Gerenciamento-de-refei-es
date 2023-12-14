@@ -156,6 +156,8 @@ except ImportError:
 
 LOGIN_REDIRECT_URL = '/'
 
+LOGIN_URL = '/'
+
 AUTH_USER_MODEL = "core.User"
 
 #AWS config
