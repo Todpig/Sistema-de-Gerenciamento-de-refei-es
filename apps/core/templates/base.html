@@ -35,12 +35,14 @@
         <img
           src="{% static 'img/logo.png' %}"
           alt="logo do gerenciamneto de refeição"
+          id="#logo"
         />
       </a>
       <nav class="navBar">
         {% if not user.coordenator and not user.chef %}
           <a href="{% url 'todayMenu' %}">Cardápio do dia</a>
-          <a href="{% url 'request-snack' %}">Solicitar refeição</a> 
+          <a href="{% url 'request-snack' %}">Solicitar refeição</a>
+          <a href="{% url 'my-requests' %}">Minhas solicitações</a>  
         {% endif %}
         {% if user.coordenator %}
           <a href="{% url 'all-request-meal' %}">Analisar solicitações</a>
@@ -52,8 +54,7 @@
         {% if user.is_anonymous %}
           <a class="btnLogin" href="{% url 'social:begin' 'suap' %}">Login</a>
         {% endif %}
-        {% if not user.is_anonymous %}
-        <a href="{% url 'my-requests' %}">Minhas solicitações</a> 
+        {% if not user.is_anonymous %}       
           <p href="#">Olá, {{user.first_name}}</p>
           <a class="btnLogin" href="{% url 'logout' %}">Logout</a>
         {% endif %}
@@ -70,7 +71,8 @@
       <nav class="navBar-mobile">
         {% if not user.coordenator and not user.chef %}
           <a href="{% url 'todayMenu' %}">Cardápio do dia</a> 
-          <a href="{% url 'request-snack' %}">Solicitar refeição</a> 
+          <a href="{% url 'request-snack' %}">Solicitar refeição</a>
+          <a href="{% url 'my-requests' %}">Minhas solicitações</a>
         {% endif %}
         {% if user.coordenator %}
           <a href="{% url 'all-request-meal' %}">Analisar solicitações</a>
@@ -83,7 +85,6 @@
           <a class="btnLogin" href="{% url 'social:begin' 'suap' %}">Login</a>
         {% endif %}
         {% if not user.is_anonymous %}
-        <a href="{% url 'my-requests' %}">Minhas solicitações</a>
           <a href="#">Olá, {{user.first_name}}</a>
           <a class="btnLogin" href="{% url 'logout' %}">Logout</a>
         {% endif %}
