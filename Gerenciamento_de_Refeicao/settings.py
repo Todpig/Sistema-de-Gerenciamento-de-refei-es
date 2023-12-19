@@ -25,14 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r1e(t1mh!)b-qkcessmiyaq%ve^p#rq_5k)9i$92nm+kzi47=u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,12 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.core',
     'social_django',
-    'rest_framework',
     'storages',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'Gerenciamento_de_Refeicao.urls'
 
@@ -160,13 +162,14 @@ LOGIN_URL = '/'
 
 AUTH_USER_MODEL = "core.User"
 
-#AWS config
+# AWS config
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-#CSRF_TRUSTED_ORIGINS = ["http://lanele.vitorrafael.com.br"]
+# CSRF_TRUSTED_ORIGINS = ["http://lanele.vitorrafael.com.br"]
 
 AWS_ACCESS_KEY_ID = 'AKIA43ZQKQIQTZEBHYNO'
 AWS_SECRET_ACCESS_KEY = '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'
