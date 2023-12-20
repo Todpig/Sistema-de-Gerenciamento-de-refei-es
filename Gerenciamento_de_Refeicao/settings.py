@@ -166,13 +166,13 @@ AUTH_USER_MODEL = "core.User"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # CSRF_TRUSTED_ORIGINS = ["http://lanele.vitorrafael.com.br"]
 
-AWS_ACCESS_KEY_ID = 'AKIA43ZQKQIQTZEBHYNO'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = config("AWS_ACCESS_ID")
+AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_KEY")
 AWS_STORAGE_BUCKET_NAME = 'lanele'
 AWS_S3_SIGNATURE_NAME = 's3v4',
 AWS_S3_REGION_NAME = 'us-east-2'
