@@ -169,7 +169,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-# CSRF_TRUSTED_ORIGINS = ["http://lanele.vitorrafael.com.br"]
+CSRF_TRUSTED_ORIGINS = ["http://lanele.vitorrafael.com.br"]
 
 AWS_ACCESS_KEY_ID = config("AWS_ACCESS_ID")
 AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_KEY")
