@@ -13,8 +13,7 @@ def send_approval_email(user_email, date, type):
 
 def send_rejection_email(user_email, date, type):
     subject = 'Solicitação Reprovada'
-    message = f'Sua solicitação de {type} para o dia {
-        date} foi reprovada. Entre em contato para mais informações.'
+    message = f'Sua solicitação de {type} para o dia {date} foi reprovada. Entre em contato para mais informações.'
     from_email = config("EMAIL_HOST_USER")
 
     recipient_list = [user_email]
