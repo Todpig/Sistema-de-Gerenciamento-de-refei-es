@@ -1,23 +1,29 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #202024; /* Cor de fundo */
-  margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-height: 100vh;
   height: 100vh;
   color: #E1E1E6; /* Cor do texto */
 }
 
 .container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
   font-size: 5em;
   color: #00B37E; /* Cor do número 404 */
-  margin: 0;
 }
 
 p {
@@ -40,6 +46,7 @@ a:hover {
 }
 
 img {
-  max-width: 100%;
+  max-width: 600px;
+  width: 100%;
   height: auto;
 }
