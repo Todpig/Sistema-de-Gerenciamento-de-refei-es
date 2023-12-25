@@ -147,7 +147,8 @@ class FormToCreateMealView(TemplateView):
             snackType = snack.type
             if snackType == "almoço":
                 snackType = "almoco"
-            self.send_message(f'Create the snack {snack.description}', snackType)
+            self.send_message(f'Create the snack {
+                              snack.description}', snackType)
             return redirect('create-meal')
         else:
             return self.render_to_response({'form': form})
@@ -201,9 +202,15 @@ def rejectRequestView(request, pk):
 @login_required
 def selectSnackToDayView(request, pk):
     snack = Snack.objects.get(pk=pk)
-    snack.snack_to_day = True
-    snack.save()
-    return redirect('select-dish')
+    snackToDay = Snack.objects.filter(snack_to_day=True, type=snack.type)
+    if snackToDay:
+        messages.error(
+            request, 'Já existe uma refeição selecionada para hoje, por favor desmarque a refeição selecionada para poder selecionar outra.')
+        return redirect('select-dish')
+    else:
+        snack.snack_to_day = True
+        snack.save()
+        return redirect('select-dish')
 
 
 @login_required
