@@ -4,8 +4,7 @@ from decouple import config
 
 def send_approval_email(user_email, date, type):
     subject = 'Solicitação Aprovada'
-    message = f'Sua solicitação de {type} para o dia {
-        date} foi aprovada. Entre em contato para mais informações.'
+    message = f'Sua solicitação de {type} para o dia {date} foi aprovada. Entre em contato para mais informações.'
     from_email = config("EMAIL_HOST_USER")
     recipient_list = [user_email]
 
