@@ -13,7 +13,6 @@ class SuapOAuth2(BaseOAuth2):
     REDIRECT_STATE = True
     STATE_PARAMETER = True
     USER_DATA_URL = 'https://suap.ifrn.edu.br/api/eu/'
-    
 
     def user_data(self, access_token, *args, **kwargs):
         return self.request(

@@ -56,7 +56,7 @@
         {% endif %}
         {% if not user.is_anonymous %}       
           <p href="#">Olá, {{user.first_name}}</p>
-          <a class="btnLogin" href="{% url 'logout' %}">Logout</a>
+          <a href="{% url 'logout' %}"><img src="{% static 'img/logout.svg' %}" alt=""></a>
         {% endif %}
       </nav>
     </header>
@@ -86,7 +86,7 @@
         {% endif %}
         {% if not user.is_anonymous %}
           <a href="#">Olá, {{user.first_name}}</a>
-          <a class="btnLogin" href="{% url 'logout' %}">Logout</a>
+          <a href="{% url 'logout' %}"><img src="{% static 'img/logout.svg' %}" alt=""></a>
         {% endif %}
       </nav>
     </div>
