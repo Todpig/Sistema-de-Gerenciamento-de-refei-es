@@ -86,7 +86,7 @@
         {% endif %}
         {% if not user.is_anonymous %}
           <a href="#">Olá, {{user.first_name}}</a>
-          <a href="{% url 'logout' %}"><img src="{% static 'img/logout.svg' %}" alt=""></a>
+          <a href="{% url 'logout' %}"><img src="{% static 'img/logout.svg' %}" style="width: 28px" alt=""></a>
         {% endif %}
       </nav>
     </div>
